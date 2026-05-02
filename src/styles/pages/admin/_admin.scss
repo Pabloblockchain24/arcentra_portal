@@ -1,0 +1,14 @@
+.admin-dashboard{
+    display: flex;
+    flex-direction: row;
+}
+
+.right-side{
+    width: 100%;
+    margin-left: 240px;
+
+}
+
+.sidebar.closed + .right-side {
+  margin-left: 70px;
+}

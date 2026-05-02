@@ -1,0 +1,119 @@
+.estatus {
+  padding: 4rem 16rem;
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* HEADER */
+
+.estatus__header {
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1e2a38;
+    margin: 0;
+  }
+}
+
+.estatus__subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* GRID LAYOUT */
+
+.estatus__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 25px;
+}
+
+/* TABLE */
+
+.estatus__table-wrapper {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+.estatus__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.estatus__table thead {
+  background-color: #1e2a38;
+  color: white;
+}
+
+.estatus__table th {
+  padding: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.estatus__table td {
+  padding: 8px;
+  font-size: 11px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #1e293b;
+}
+
+.estatus__table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* MAP */
+
+.estatus__map-wrapper {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 10px;
+}
+
+.estatus__map {
+  height: 500px;
+  width: 100%;
+}
+
+/* ================= TRUCK MARKER ================= */
+
+/* ================= ROBUST TRUCK MARKER ================= */
+
+/* ================= ERP TRUCK MARKER ================= */
+
+/* ================= COMPACT ERP TRUCK ================= */
+
+/* ================= MINI ERP TRUCK ================= */
+
+.custom-truck-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo ultra compacto */
+
+.truck-marker {
+  background: #ffffff;
+  padding: 2px 4px; /* muy poco padding */
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: 
+    transform 0.25s cubic-bezier(.22,1,.36,1),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover elegante */
+
+.truck-marker:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  filter: brightness(1.04);
+}

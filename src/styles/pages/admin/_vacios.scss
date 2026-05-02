@@ -1,0 +1,143 @@
+.vacios {
+  padding: 4rem 20rem;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+.vacios__header {
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+}
+
+.vacios__subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* KPI */
+
+.vacios__kpis {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.vacios__kpi-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  flex: 1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+
+  span {
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  strong {
+    display: block;
+    font-size: 28px;
+    margin-top: 8px;
+    color: #0f172a;
+  }
+}
+
+.vacios__kpi-card--warning strong {
+  color: #f59e0b;
+}
+
+.vacios__kpi-card--danger strong {
+  color: #dc2626;
+}
+
+/* TABLE */
+
+.vacios__table-wrapper {
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.vacios__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vacios__table thead {
+  background: #0f172a;
+  color: white;
+}
+
+.vacios__table th {
+  padding: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.vacios__table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.vacios__table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.vacios__table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* BADGES MODERNOS */
+
+.vacios__badge {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  min-width: 90px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vacios__badge--success {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35);
+  }
+}
+
+.vacios__badge--warning {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(251, 191, 36, 0.35);
+  }
+}
+
+.vacios__badge--danger {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+  }
+}

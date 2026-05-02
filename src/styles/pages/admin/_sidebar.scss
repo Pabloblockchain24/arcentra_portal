@@ -1,0 +1,207 @@
+@use "../../base/colors" as colors;
+
+/* =========================
+   Sidebar general
+   ========================= */
+.sidebar {
+  width: 240px;
+  background: colors.$corporative-blue;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;   // 🔥 clave
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1000;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  .sidebarLogo{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: 2rem 1rem;
+  }
+
+  /* Estado cerrado */
+  &.closed {
+    width: 70px;
+    padding: 1rem 0.3rem;
+
+    img,
+    ul,
+    .sidebar-footer {
+      display: none;
+    }
+  }
+
+  /* Botón de toggle */
+  .toggle-btn {
+    position: absolute;
+    top: 1rem;
+    right: -18px;
+    background: colors.$corporative;
+    color: colors.$white;
+    border-radius: 50%;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      opacity: 1 !important;
+      background: colors.$corporative-dark;
+    }
+  }
+
+  /* Lista de módulos */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    li {
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      color: colors.$white;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      font-size: 0.95rem;
+
+      &:hover {
+        background: colors.$corporative;
+        color: colors.$white;
+        transform: translateX(4px);
+      }
+
+      &.active {
+        background: colors.$corporative;
+        color: colors.$white;
+      }
+    }
+  }
+
+  /* Footer */
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid colors.$white;
+    display: flex;
+    justify-content: center;
+
+    .logout-btn {
+      background: colors.$white;
+      color: colors.$black;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: colors.$corporative;
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+
+    ul li {
+      font-size: 0.85rem;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .logout-btn {
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: -180px; // oculto por defecto
+    transform: translateX(0);
+    transition: left 0.3s ease;
+    width: 180px;
+
+    &.open {
+      left: 0;
+    }
+
+    &.closed{
+      left: 0;
+    }
+
+    .toggle-btn {
+      top: 1rem;
+      right: -18px;
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 2rem 0 1rem;
+    }
+
+    ul li {
+      font-size: 0.85rem;
+      padding: 0.6rem 0.8rem;
+    }
+  }
+
+  /* Fondo oscuro al abrir */
+  body.sidebar-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: 120px;
+
+    h3 {
+      font-size: 0.85rem;
+      margin: 2rem 0 2rem;
+    }
+
+    ul li {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  }
+}

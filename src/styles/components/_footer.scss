@@ -1,0 +1,101 @@
+@use "../base/colors" as colors;
+.footer {
+  background-color: colors.$grey;
+  color: colors.$tertiary;
+  padding-inline: 4rem;
+  padding-block: 2rem;
+  font-size: 0.95rem;
+
+
+  .footer__links{
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 1rem;
+  }
+
+  a {
+    color: #46705f;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem; // 👈 más compacto en mobile
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+
+  &__brand {
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 150px;
+      height: auto; // 👈 mantiene la proporción, evita distorsión
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 1 auto; // 👈 ocupa solo el ancho de su contenido
+      img {
+        max-width: 100px; // 👈 más compacto en pantallas muy pequeñas
+      }
+    }
+  }
+
+  &__contacto,
+  &__redes {
+    flex: 1 1 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (max-width: 768px) {
+      flex: 0 1 auto; // 👈 ocupa solo el ancho de su contenido
+      align-items: center;
+      gap: 0.1rem;
+      font-size: 0.85rem; // 👈 texto un poco más pequeño
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.8rem; // 👈 aún más compacto en móviles pequeños
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid colors.$grey;
+    padding-top: 1rem;
+    text-align: center;
+
+    p {
+      margin: 0.3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem; // 👈 reducimos tamaño del texto
+    }
+
+    @media (max-width: 480px) {
+      padding-top: 0.5rem;
+      font-size: 0.75rem; // 👈 aún más compacto
+    }
+  }
+}

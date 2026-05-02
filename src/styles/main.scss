@@ -1,0 +1,53 @@
+@use './theme/theme'; 
+
+// Estilos del home
+@use './pages/home/banner'; 
+@use './pages/home/advantages'; 
+@use './pages/home/reviews'; 
+@use './pages/home/featured'; 
+
+// Estilos de landing page
+@use './pages/landing/landing';
+
+//Estilos del campo
+@use './pages/farm/campo'; 
+
+//Estilos del cart
+@use './pages/cart/cart'; 
+@use './pages/cart/checkout'; 
+@use './pages/cart/compraConfirmada'; 
+
+//Estilos del admin
+@use './pages/admin/admin';
+@use './pages/admin/programacion';
+@use './pages/admin/general';
+@use './pages/admin/metricas';
+@use './pages/admin/stocks';
+@use './pages/admin/tarifas';
+@use './pages/admin/facturacion';
+@use './pages/admin/vacios';
+@use './pages/admin/estatus';
+@use './pages/admin/sidebar'; 
+@use './pages/admin/topbar'; 
+@use './pages/admin/login'; 
+@use './pages/admin/register'; 
+
+
+//Estilos de reviews
+ @use './pages/review/reviewPage'; 
+
+
+//Estilos de receetas
+@use './pages/recipes/recipe'; 
+
+//Estilos de la tienda
+@use './pages/shop/tienda';
+@use './pages/shop/toastify';
+
+
+//Estilos de la componentes
+@use './components/header'; 
+@use './components/footer'; 
+@use './components/loader'; 
+@use './components/whatsappButton'; 
+
