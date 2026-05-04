@@ -16,7 +16,7 @@ export default function LoginPage() {
       <div className="login-card">
 
         <div className="login-header">
-          <img src="/Arcentralogo2.png" alt="Logo Transcurrin" className="login-logo"/>
+          <img src="/Arcentralogo2.png" alt="Logo Arcentra" className="login-logo"/>
           <p className="subtitle">
             Plataforma de Gestión Logística de Arcentra
           </p>

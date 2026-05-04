@@ -12,7 +12,7 @@ export default function Sidebar({ activeModule, setActiveModule }) {
       <button className="toggle-btn" onClick={() => setIsOpen((prev) => !prev)}>
         {isOpen ? "←" : "→"}
       </button> 
-      <img src="/logoFooter.png" alt="Logo Transcurrin" className="sidebarLogo"/>
+      <img src="/Arcentralogo.png" alt="Logo Arcentra" className="sidebarLogo"/>
 
       {/* Contenido del sidebar */}
       {isOpen && (
