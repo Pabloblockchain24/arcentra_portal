@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import {
   loginByApi,
   logoutByApi,
@@ -28,6 +28,10 @@ export const AuthProvider = ({ children }) => {
 
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+  verifyToken();
+}, []);
+
   // 🔐 LOGIN
   const login = async (credentials) => {
   try {
@@ -35,8 +39,11 @@ export const AuthProvider = ({ children }) => {
     setError(null); // limpiamos error previo
 
     const res = await loginByApi(credentials);
-    setUser( res.data.data._doc);
+    const { user, token } = res.data;
+
+    setUser(user);
     setIsAuthenticated(true);
+    localStorage.setItem("token", token);
   } catch (err) {
     console.error("Login error:", err);
 
@@ -65,6 +72,8 @@ export const AuthProvider = ({ children }) => {
 
       setUser(null);
       setIsAuthenticated(false);
+      localStorage.removeItem("token");
+
     } catch (error) {
       console.error("Logout error:", error);
     } finally {
@@ -73,28 +82,38 @@ export const AuthProvider = ({ children }) => {
   };
 
   // 🔎 VERIFY TOKEN (solo al iniciar app)
-  const verifyToken = async () => {
-    try {
-      setInitialLoading(true);
+const verifyToken = async () => {
+  setInitialLoading(true);
 
-      const res = await verifyTokenRequestByApi();
+  try {
+    const token = localStorage.getItem("token");
 
-      if (res?.data?.user) {
-        setUser(res.data.user);
-        setIsAuthenticated(true);
-      } else {
-        setUser(null);
-        setIsAuthenticated(false);
-      }
-    } catch (error) {
-      // Si el token no es válido, simplemente dejamos sesión cerrada
+    if (!token) {
       setUser(null);
       setIsAuthenticated(false);
-      console.error("Token verification error:", error);
-    } finally {
-      setInitialLoading(false);
+      return;
     }
-  };
+
+    const res = await verifyTokenRequestByApi();
+
+    if (res?.data?.user) {
+      setUser(res.data.user);
+      setIsAuthenticated(true);
+    } else {
+      throw new Error("Token inválido");
+    }
+
+  } catch (error) {
+    console.error("Token verification error:", error);
+
+    localStorage.removeItem("token");
+    setUser(null);
+    setIsAuthenticated(false);
+
+  } finally {
+    setInitialLoading(false);
+  }
+};
 
   const register = async (userData) => {
     try {
