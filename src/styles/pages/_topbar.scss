@@ -1,0 +1,153 @@
+.topbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeef5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* CENTER SEARCH */
+.topbar__center {
+  display: flex;
+  justify-content: center;
+}
+
+.topbar__search {
+  position: relative;
+  width: 520px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f6f8fc;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    background: #fff;
+    border-color: #c7d2fe;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+}
+
+.topbar__icon {
+  color: #94a3b8;
+}
+
+.topbar__input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* RESULTS */
+.topbar__results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #eaeef5;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.topbar__result-item {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: #f6f8fc;
+  }
+
+  strong {
+    font-size: 14px;
+    color: #0f172a;
+  }
+
+  span {
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  &.empty {
+    text-align: center;
+    color: #94a3b8;
+    cursor: default;
+  }
+}
+
+/* RIGHT */
+.topbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+/* PROFILE */
+.topbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar__info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.topbar__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.topbar__role {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* LOGOUT */
+.topbar__logout {
+  background: transparent;
+  border: 1px solid #eaeef5;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: #ef4444;
+  }
+}

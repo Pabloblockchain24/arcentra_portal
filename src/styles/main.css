@@ -3062,19 +3062,19 @@ button:hover {
     transform: translateY(0);
   }
 }
-.footer {
+/* .footer {
   background-color: #f5f5f5;
   color: #333;
   padding-inline: 4rem;
   padding-block: 2rem;
   font-size: 0.95rem;
-}
-.footer .footer__links {
+} */
+/* .footer .footer__links {
   margin-top: 0.5rem;
   display: flex;
   gap: 1rem;
-}
-.footer a {
+} */
+/* .footer a {
   color: #539987;
   text-decoration: none;
 }
@@ -3155,7 +3155,7 @@ button:hover {
     padding-top: 0.5rem;
     font-size: 0.75rem;
   }
-}
+} */
 
 /* =========================
    Loader general

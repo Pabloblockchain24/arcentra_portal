@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }) => {
 
     const res = await loginByApi(credentials);
     const { user, token } = res.data;
-
     setUser(user);
     setIsAuthenticated(true);
     localStorage.setItem("token", token);

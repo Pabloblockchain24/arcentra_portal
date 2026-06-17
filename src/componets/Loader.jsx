@@ -1,4 +1,4 @@
-export default function Loader({ size = 50, color = "#c79500" }) {
+export default function Loader({ size = 50, color = "#115d8f" }) {
   return (
     <div className="loader-wrapper">
       <div
