@@ -1644,7 +1644,7 @@ button:disabled {
 =================================== */
 .login-card {
   position: relative;
-  width: 305px;
+  width: 345px;
   background: #FFFFFF;
   border: 1px solid #d7dde5;
   border-radius: 8px;
@@ -1737,6 +1737,33 @@ button:disabled {
   outline: none;
   border-color: #3a5d91;
   box-shadow: 0 0 0 4px rgba(242, 183, 5, 0.15);
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a869a;
+  font-size: 1.15rem;
+  transition: color 0.2s ease;
+}
+.password-toggle:hover {
+  color: #2f5f9e;
 }
 
 /* ===================================
