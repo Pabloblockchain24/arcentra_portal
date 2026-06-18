@@ -23,7 +23,7 @@
 }
 
 .sidebar.closed + .right-side {
-  margin-left: 55px;
+  margin-left: 35px;
 }
 
 @media (max-width: 1200px) {
@@ -503,7 +503,7 @@
 ========================================== */
 @media (max-width: 576px) {
   .general {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
   .general__header h2 {
     font-size: 1.1rem;
@@ -533,7 +533,10 @@
   .map-card,
   .table-card,
   .operative-card {
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+  .map-card__container {
+    height: 250px;
   }
   .map-card iframe {
     height: 250px;
@@ -1605,7 +1608,7 @@ button:disabled {
   left: 0;
   top: 0;
   height: 100vh;
-  z-index: 1000;
+  z-index: 999999;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -1619,7 +1622,7 @@ button:disabled {
   /* Estado cerrado */
 }
 .sidebar.closed {
-  width: 50px;
+  width: 30px;
   padding: 1rem 0.3rem;
 }
 .sidebar.closed img,
@@ -1790,7 +1793,7 @@ button:disabled {
   padding: 0 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
 }
 
 .topbar__left {

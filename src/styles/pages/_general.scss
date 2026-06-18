@@ -396,7 +396,7 @@
 ========================================== */
 @media (max-width: 576px) {
   .general {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
 
   .general__header {
@@ -436,8 +436,12 @@
   .map-card,
   .table-card,
   .operative-card {
-    padding: 1rem;
+    padding: 0.5rem;
   }
+
+  .map-card__container {
+  height: 250px;
+}
 
   .map-card iframe {
     height: 250px;
