@@ -1902,7 +1902,7 @@ button:disabled {
    ========================= */
 @media (max-width: 576px) {
   .topbar {
-    padding: 0.5rem 1rem 0.5rem;
+    padding: 0.5rem 2rem 0.5rem;
     gap: 0.5rem;
   }
   .topbar__profile {
