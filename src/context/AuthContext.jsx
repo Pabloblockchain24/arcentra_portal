@@ -134,7 +134,7 @@ const verifyToken = async () => {
   return (
     <AuthContext.Provider
       value={{
-        user,
+        user: {nombre: "Pablo", apellido: "Arce", empresa: "Arcentra"}, // solo para pruebas, eliminar luego
         login,
         logout,
         register,

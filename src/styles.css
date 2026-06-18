@@ -9,12 +9,17 @@
 .admin-dashboard {
   display: flex;
   flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .right-side {
   width: 100%;
+  height: 100vh;
   max-height: 100vh;
   margin-left: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .sidebar.closed + .right-side {
@@ -1677,15 +1682,21 @@ button:disabled {
   z-index: 100;
 }
 
+.topbar__left {
+  width: 40px;
+  flex-shrink: 0;
+}
+
 /* CENTER SEARCH */
 .topbar__center {
+  flex: 1;
   display: flex;
   justify-content: center;
 }
 
 .topbar__search {
   position: relative;
-  width: 520px;
+  width: min(520px, 100%);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1703,6 +1714,7 @@ button:disabled {
 
 .topbar__icon {
   color: #94a3b8;
+  flex-shrink: 0;
 }
 
 .topbar__input {
@@ -1757,6 +1769,7 @@ button:disabled {
   align-items: center;
   justify-content: flex-end;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 /* PROFILE */
@@ -1812,6 +1825,127 @@ button:disabled {
   color: #ef4444;
 }
 
+/* =========================
+   <= 1200px
+   ========================= */
+@media (max-width: 1200px) {
+  .topbar {
+    padding: 0 18px;
+  }
+  .topbar__search {
+    width: min(420px, 100%);
+  }
+}
+/* =========================
+   <= 992px
+   ========================= */
+@media (max-width: 992px) {
+  .topbar {
+    padding: 0 16px;
+  }
+  .topbar__search {
+    width: min(320px, 100%);
+  }
+  .topbar__info {
+    max-width: 120px;
+  }
+  .topbar__name,
+  .topbar__role {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+/* =========================
+   <= 768px
+   ========================= */
+/* =========================
+   <= 768px
+   ========================= */
+@media (max-width: 768px) {
+  .topbar {
+    height: auto;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .topbar__left {
+    display: none;
+  }
+  /* usuario arriba */
+  .topbar__right {
+    width: 100%;
+    justify-content: space-between;
+    order: 1;
+  }
+  /* buscador abajo */
+  .topbar__center {
+    width: 100%;
+    order: 2;
+  }
+  .topbar__search {
+    width: 100%;
+  }
+  .topbar__info {
+    max-width: none;
+  }
+  .topbar__name {
+    font-size: 12px;
+  }
+  .topbar__role {
+    font-size: 10px;
+  }
+}
+/* =========================
+   <= 576px
+   ========================= */
+@media (max-width: 576px) {
+  .topbar {
+    padding: 1rem 2rem 1.5rem;
+    gap: 14px;
+  }
+  .topbar__profile {
+    width: 100%;
+    align-items: center;
+  }
+  .topbar__info {
+    display: flex;
+  }
+  .topbar__name {
+    font-size: 13px;
+  }
+  .topbar__role {
+    font-size: 11px;
+  }
+  .topbar__logout {
+    width: 25%;
+    height: 32px;
+    border-radius: 4px;
+    justify-content: center;
+    gap: 8px;
+  }
+  .topbar__search {
+    width: 100%;
+    padding: 10px 12px;
+  }
+  .topbar__input {
+    font-size: 13px;
+  }
+  .topbar__input::placeholder {
+    font-size: 12px;
+    content: "Buscar contenedor...";
+  }
+  .topbar__result-item {
+    padding: 10px;
+  }
+  .topbar__result-item strong {
+    font-size: 12px;
+  }
+  .topbar__result-item span {
+    font-size: 11px;
+  }
+}
 /* ===================================
    WRAPPER
 =================================== */

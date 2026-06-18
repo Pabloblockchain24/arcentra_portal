@@ -41,7 +41,7 @@ const Topbar = () => {
 
   return (
     <header className="topbar">
-      <div></div>
+      <div className="topbar__left"></div>
       {/* CENTER SEARCH */}
       <div className="topbar__center">
         <div className="topbar__search" ref={searchRef}>
