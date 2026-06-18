@@ -160,7 +160,7 @@ const MapPanel = () => {
       <div className="map-card__container">
         <MapContainer
           center={[-33.6, -71.0]}
-          zoom={10}
+          zoom={15}
           scrollWheelZoom={false}
           className="map-card__map"
         >
