@@ -1,63 +1,132 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  iconUrl:
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl:
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
+const createClusterCustomIcon = (cluster) => {
+  return L.divIcon({
+    html: `
+      <div class="truck-cluster">
+        🚛
+        <span>${cluster.getChildCount()}</span>
+      </div>
+    `,
+    className: "custom-marker-cluster",
+    iconSize: L.point(50, 50, true),
+  });
+};
 
 const truckIcon = L.divIcon({
   className: "custom-truck-icon",
   html: `
-    <div class="truck-marker">
-      <svg viewBox="0 0 64 64" width="36" height="36">
-        <rect x="4" y="24" width="30" height="16" rx="2" fill="#1e293b"/>
-        <rect x="34" y="18" width="16" height="22" rx="2" fill="#334155"/>
-        <rect x="38" y="21" width="8" height="7" fill="#e2e8f0"/>
-        <circle cx="16" cy="44" r="5" fill="#0f172a"/>
-        <circle cx="42" cy="44" r="5" fill="#0f172a"/>
-      </svg>
+    <div class="truck-cluster truck-single">
+      🚛
+      <span>1</span>
     </div>
   `,
-  iconSize: [40, 40],
-  iconAnchor: [20, 20],
+  iconSize: [50, 50],
+  iconAnchor: [25, 25],
   popupAnchor: [0, -20],
 });
 const unidades = [
+  // =========================
+  // SAN ANTONIO (3 camiones)
+  // =========================
   {
     id: 1,
-    unidad: "TRK-01",
-    chofer: "Juan Pérez",
-    patente: "ABCD12",
-    carga: "Contenedor 40' Maersk",
-    lat: -33.45,
-    lng: -70.66,
+    unidad: "TCLU 204215-2",
+    chofer: "Mario Gonzalez",
+    patente: "VV7049",
+    carga: "Cerámica",
+    lat: -33.5891,
+    lng: -71.6180,
   },
   {
     id: 2,
-    unidad: "TRK-02",
-    chofer: "Carlos Soto",
-    patente: "EFGH34",
-    carga: "Cobre Refinado",
-    lat: -33.59,
-    lng: -71.61,
+    unidad: "BMOU 284116-3",
+    chofer: "Pablo Apablaza",
+    patente: "BSWC22",
+    carga: "Cerámica",
+    lat: -33.6005,
+    lng: -71.6202,
   },
   {
     id: 3,
-    unidad: "TRK-03",
-    chofer: "Pedro Díaz",
-    patente: "JKLM56",
-    carga: "Carga Refrigerada",
-    lat: -33.03,
-    lng: -71.55,
+    unidad: "FSDU 114789-5",
+    chofer: "Fabian Gonzalez",
+    patente: "RV6905",
+    carga: "Cerámica",
+    lat: -33.5750,
+    lng: -71.6050,
+  },
+
+  // =========================
+  // MELIPILLA (Ruta 78)
+  // =========================
+{
+  id: 4,
+  unidad: "TLLU 110025-5",
+  chofer: "Jose Apablaza",
+  patente: "BKXC23",
+  carga: "Sanitarios",
+  lat: -33.672,
+  lng: -71.2132,
+},
+  // =========================
+  // MALLOCO (Ruta 78)
+  // =========================
+{
+  id: 5,
+  unidad: "MSCU 558520-5",
+  chofer: "Reinaldo Diaz",
+  patente: "HLGX81",
+  carga: "Cerámica",
+  lat: -33.66,
+  lng: -70.9048,
+},
+
+  // =========================
+  // QUILICURA (Lautaro 9202)
+  // =========================
+  {
+    id: 6,
+    unidad: "MSCU 558533-8",
+    chofer: "Manuel Acevedo",
+    patente: "HLGX82",
+    carga: "Cerámica",
+    lat: -33.3640,
+    lng: -70.7340,
+  },
+  {
+    id: 7,
+    unidad: "TCLU 204215-2",
+    chofer: "Pablo Arce",
+    patente: "CXST20",
+    carga: "Cerámica",
+    lat: -33.3625,
+    lng: -70.7305,
+  },
+
+  // =========================
+  // RENCA (Alberto Pepper 1961)
+  // =========================
+  {
+    id: 8,
+    unidad: "BMOU 284116-3",
+    chofer: "Hector Gonzalez",
+    patente: "CXST20",
+    carga: "Sanitarios",
+    lat: -33.4069,
+    lng: -70.7350,
   },
 ];
 
@@ -78,31 +147,38 @@ const MapPanel = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          {unidades.map((unidad) => (
-          <Marker
-  key={unidad.id}
-  position={[unidad.lat, unidad.lng]}
-  icon={truckIcon}
->
-  <Popup>
-    <div className="truck-popup">
-      <h4>{unidad.unidad}</h4>
+          <MarkerClusterGroup
+            chunkedLoading
+            spiderfyOnMaxZoom
+            showCoverageOnHover={false}
+            iconCreateFunction={createClusterCustomIcon}
+          >
+            {unidades.map((unidad) => (
+              <Marker
+                key={unidad.id}
+                position={[unidad.lat, unidad.lng]}
+                icon={truckIcon}
+              >
+                <Popup>
+                  <div className="truck-popup">
+                    <h4>{unidad.unidad}</h4>
 
-      <p>
-        <strong>Chofer:</strong> {unidad.chofer}
-      </p>
+                    <p>
+                      <strong>Chofer:</strong> {unidad.chofer}
+                    </p>
 
-      <p>
-        <strong>Patente:</strong> {unidad.patente}
-      </p>
+                    <p>
+                      <strong>Patente:</strong> {unidad.patente}
+                    </p>
 
-      <p>
-        <strong>Carga:</strong> {unidad.carga}
-      </p>
-    </div>
-  </Popup>
-</Marker>
-          ))}
+                    <p>
+                      <strong>Carga:</strong> {unidad.carga}
+                    </p>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+          </MarkerClusterGroup>
         </MapContainer>
       </div>
     </div>
