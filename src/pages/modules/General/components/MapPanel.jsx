@@ -1,7 +1,9 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import { useGeneralData } from "../hooks/useGeneralData.jsx";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -11,6 +13,19 @@ L.Icon.Default.mergeOptions({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
+
+const FitBounds = ({ unidades }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!unidades.length) return;
+
+    const bounds = unidades.map((u) => [u.lat, u.lng]);
+    map.fitBounds(bounds, { padding: [50, 50] });
+  }, [unidades, map]);
+
+  return null;
+};
 
 const createClusterCustomIcon = (cluster) => {
   return L.divIcon({
@@ -48,7 +63,7 @@ const unidades = [
     patente: "VV7049",
     carga: "Cerámica",
     lat: -33.5891,
-    lng: -71.6180,
+    lng: -71.618,
   },
   {
     id: 2,
@@ -65,34 +80,34 @@ const unidades = [
     chofer: "Fabian Gonzalez",
     patente: "RV6905",
     carga: "Cerámica",
-    lat: -33.5750,
-    lng: -71.6050,
+    lat: -33.575,
+    lng: -71.605,
   },
 
   // =========================
   // MELIPILLA (Ruta 78)
   // =========================
-{
-  id: 4,
-  unidad: "TLLU 110025-5",
-  chofer: "Jose Apablaza",
-  patente: "BKXC23",
-  carga: "Sanitarios",
-  lat: -33.672,
-  lng: -71.2132,
-},
+  {
+    id: 4,
+    unidad: "TLLU 110025-5",
+    chofer: "Jose Apablaza",
+    patente: "BKXC23",
+    carga: "Sanitarios",
+    lat: -33.672,
+    lng: -71.2132,
+  },
   // =========================
   // MALLOCO (Ruta 78)
   // =========================
-{
-  id: 5,
-  unidad: "MSCU 558520-5",
-  chofer: "Reinaldo Diaz",
-  patente: "HLGX81",
-  carga: "Cerámica",
-  lat: -33.66,
-  lng: -70.9048,
-},
+  {
+    id: 5,
+    unidad: "MSCU 558520-5",
+    chofer: "Reinaldo Diaz",
+    patente: "HLGX81",
+    carga: "Cerámica",
+    lat: -33.66,
+    lng: -70.9048,
+  },
 
   // =========================
   // QUILICURA (Lautaro 9202)
@@ -103,8 +118,8 @@ const unidades = [
     chofer: "Manuel Acevedo",
     patente: "HLGX82",
     carga: "Cerámica",
-    lat: -33.3640,
-    lng: -70.7340,
+    lat: -33.364,
+    lng: -70.734,
   },
   {
     id: 7,
@@ -126,19 +141,26 @@ const unidades = [
     patente: "CXST20",
     carga: "Sanitarios",
     lat: -33.4069,
-    lng: -70.7350,
+    lng: -70.735,
   },
 ];
 
 const MapPanel = () => {
+
+    const { currentDate } = useGeneralData();
+
   return (
     <div className="map-card">
+      <div className="map-card__header">
+
       <h4>Tracking operaciones</h4>
+      <p className="subtitle_map"> {currentDate} </p>
+      </div>
 
       <div className="map-card__container">
         <MapContainer
-          center={[-33.45, -70.66]}
-          zoom={8}
+          center={[-33.6, -71.0]}
+          zoom={10}
           scrollWheelZoom={false}
           className="map-card__map"
         >
@@ -146,6 +168,9 @@ const MapPanel = () => {
             attribution="© OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
+            <FitBounds unidades={unidades} />
+
 
           <MarkerClusterGroup
             chunkedLoading
@@ -159,23 +184,25 @@ const MapPanel = () => {
                 position={[unidad.lat, unidad.lng]}
                 icon={truckIcon}
               >
-                <Popup>
-                  <div className="truck-popup">
-                    <h4>{unidad.unidad}</h4>
+<Popup className="truck-popup">
+  <div className="truck-popup__mini">
+    <div className="truck-popup__title">
+      🚛 {unidad.unidad}
+    </div>
 
-                    <p>
-                      <strong>Chofer:</strong> {unidad.chofer}
-                    </p>
+    <div className="truck-popup__row">
+      <span>👤 {unidad.chofer}</span>
+    </div>
 
-                    <p>
-                      <strong>Patente:</strong> {unidad.patente}
-                    </p>
+    <div className="truck-popup__row">
+      <span>📦 {unidad.carga}</span>
+    </div>
 
-                    <p>
-                      <strong>Carga:</strong> {unidad.carga}
-                    </p>
-                  </div>
-                </Popup>
+    <div className="truck-popup__tag">
+      {unidad.patente}
+    </div>
+  </div>
+</Popup>
               </Marker>
             ))}
           </MarkerClusterGroup>

@@ -312,6 +312,11 @@
   font-weight: 600;
   color: #0f172a;
 }
+.map-card p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
 
 .map-card__container {
   width: 100%;
@@ -332,10 +337,10 @@
 }
 
 .truck-popup {
-  min-width: 220px;
+  min-width: 180px;
 }
 .truck-popup h4 {
-  margin: 0 0 10px;
+  margin: 0 0 5px;
   font-size: 14px;
   color: #0f172a;
 }
@@ -346,6 +351,40 @@
 }
 .truck-popup strong {
   color: #0f172a;
+}
+
+.truck-popup__mini {
+  min-width: 140px;
+  font-size: 11px;
+  color: #0f172a;
+}
+
+.truck-popup__title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.truck-popup__row {
+  font-size: 11px;
+  color: #475569;
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+.truck-popup__tag {
+  margin-top: 6px;
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #334155;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
 }
 
 .truck-marker {
