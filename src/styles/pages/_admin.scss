@@ -1,14 +1,33 @@
-.admin-dashboard{
+.admin-dashboard {
     display: flex;
     flex-direction: row;
 }
 
-.right-side{
+.right-side {
     width: 100%;
     margin-left: 240px;
 
 }
 
-.sidebar.closed + .right-side {
-  margin-left: 70px;
+.sidebar.closed+.right-side {
+    margin-left: 70px;
+}
+
+
+@media (max-width: 1200px) {
+    .right-side {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .right-side {
+        margin-left: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .right-side {
+        margin-left: 100px;
+    }
 }

@@ -1,7 +1,11 @@
+import { useGeneralData } from "../hooks/useGeneralData.jsx";
+
 const DeliveriesTable = ({ data }) => {
+  const { currentDate } = useGeneralData();
+
   return (
     <div className="table-card">
-      <h4>Estatus del Día</h4>
+      <h4>Estatus {currentDate}</h4>
       <table>
         <thead>
           <tr>

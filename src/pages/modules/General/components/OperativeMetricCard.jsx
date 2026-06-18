@@ -4,9 +4,9 @@ const OperativeMetricCard = ({ title, value, subtitle, icon }) => {
       <div className="operative-card__icon">{icon}</div>
       <div>
         <span className="operative-card__title">{title}</span>
-        <strong className="operative-card__value">{value}</strong>
         <small>{subtitle}</small>
       </div>
+      <strong className="operative-card__value">{value}</strong>
     </div>
   );
 };

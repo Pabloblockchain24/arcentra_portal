@@ -18,7 +18,9 @@ function AdminAppContent() {
 
   return (
     <div className="admin-app">
-      {isAuthenticated ? <AdminDashboard /> : <LoginPage />}
+      <AdminDashboard />
+      {/* cuando termine debo cambiar estas lineas por esto: */}
+            {/* {isAuthenticated ? <AdminDashboard /> : <LoginPage />} */}
     </div>
   );
 }

@@ -27,7 +27,7 @@
 
   /* Estado cerrado */
   &.closed {
-    width: 70px;
+    width: 50px;
     padding: 1rem 0.3rem;
 
     img,
@@ -124,7 +124,7 @@
    ========================= */
 
 /* Tablets */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .sidebar {
     width: 200px;
 
@@ -140,33 +140,50 @@
   }
 }
 
+/* Tablets */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 180px;
+
+    ul li {
+      font-size: 0.8rem;
+      padding: 0.65rem 0.85rem;
+    }
+
+    .logout-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+}
+
 /* Móviles */
 @media (max-width: 768px) {
   .sidebar {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: -180px; // oculto por defecto
-    transform: translateX(0);
-    transition: left 0.3s ease;
-    width: 180px;
+    // position: relative;
+    // top: 0;
+    // bottom: 0;
+    // left: -160px; // oculto por defecto
+    // transform: translateX(0);
+    // transition: left 0.3s ease;
+    // width: 160px;
 
-    &.open {
-      left: 0;
-    }
+    // &.open {
+    //   left: 0;
+    // }
 
-    &.closed{
-      left: 0;
-    }
+    // &.closed{
+    //   left: 0;
+    // }
 
-    .toggle-btn {
-      top: 1rem;
-      right: -18px;
-      font-size: 1.2rem;
-    }
+    // .toggle-btn {
+    //   top: 1rem;
+    //   right: -18px;
+    //   font-size: 1.2rem;
+    // }
 
     h3 {
-      font-size: 1rem;
+      font-size: 1.5rem;
       margin: 2rem 0 1rem;
     }
 
@@ -189,19 +206,25 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
 
   .sidebar {
-    width: 120px;
+    width: 100px;
+    padding: 2rem 0.25rem;
+
+    .sidebarLogo{
+      width: 6rem;
+      padding: 1rem 0.25rem; 
+    }
 
     h3 {
-      font-size: 0.85rem;
-      margin: 2rem 0 2rem;
+      font-size: 0.8rem;
+      margin: 1.8rem 0 1.8rem;
     }
 
     ul li {
-      font-size: 0.75rem;
-      padding: 0.5rem;
+      font-size: 0.7rem;
+      padding: 0.4rem;
     }
   }
 }

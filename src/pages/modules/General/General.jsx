@@ -9,7 +9,7 @@ const General = () => {
     summaryMetrics,
     operativeMetrics,
     entregasHoy,
-    currentMonth,
+    currentDate,
   } = useGeneralData();
 
   return (
@@ -17,8 +17,8 @@ const General = () => {
 
       <div className="general__header">
         <div>
-          <h2>Executive Overview</h2>
-          <span>Operational Status • {currentMonth}</span>
+          <h2>Resumen ejecutivo</h2>
+          <span>Estado operaciones • {currentDate}</span>
         </div>
       </div>
 

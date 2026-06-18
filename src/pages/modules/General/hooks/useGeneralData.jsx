@@ -61,6 +61,14 @@ export const useGeneralData = () => {
         descarga: "12:15",
       },
       {
+        unidad: "BMOU 284116-3",
+        producto: "40 - FULL",
+        chofer: "Pablo Apablaza",
+        patente: "BSWC22",
+        carga: "11:30",
+        descarga: "13:30",
+      },
+      {
         unidad: "FSDU 114789-5",
         producto: "20 - CERÁMICA",
         chofer: "Fabian Gonzalez",
@@ -68,9 +76,35 @@ export const useGeneralData = () => {
         carga: "09:15",
         descarga: "13:45",
       },
+
+      {
+        unidad: "TLLU 110025-5",
+        producto: "20 - CERÁMICA",
+        chofer: "Jose Apablaza",
+        patente: "BKXC23",
+        carga: "12:00",
+        descarga: "14:00",
+      },
+            {
+        unidad: "MSCU 558520-5",
+        producto: "20 - CERÁMICA",
+        chofer: "Reinaldo Diaz",
+        patente: "HLGX81",
+        carga: "9:00",
+        descarga: "11:00",
+      },
+                  {
+        unidad: "MSCU 558533-8",
+        producto: "20 - CERÁMICA",
+        chofer: "Manuel Acevedo",
+        patente: "HLGX82",
+        carga: "9:00",
+        descarga: "11:00",
+      },
     ];
 
-    const currentMonth = new Date().toLocaleString("es-CL", {
+    const currentDate = new Date().toLocaleString("es-CL", {
+      day: "numeric",
       month: "long",
       year: "numeric",
     });
@@ -79,7 +113,7 @@ export const useGeneralData = () => {
       summaryMetrics,
       operativeMetrics,
       entregasHoy,
-      currentMonth,
+      currentDate,
     };
   }, []);
 };
