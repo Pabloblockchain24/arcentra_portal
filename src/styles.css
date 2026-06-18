@@ -23,7 +23,7 @@
 }
 
 .sidebar.closed + .right-side {
-  margin-left: 70px;
+  margin-left: 55px;
 }
 
 @media (max-width: 1200px) {
