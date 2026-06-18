@@ -29,7 +29,7 @@ export default function Sidebar({ activeModule, setActiveModule }) {
             ))}
           </ul>
           <div className="sidebar-footer">
-            <button className="logout-btn" onClick={logout}>
+            <button className="logout-button-sb" onClick={logout}>
               Cerrar sesión
             </button>
           </div>

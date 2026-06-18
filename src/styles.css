@@ -32,7 +32,7 @@
 }
 @media (max-width: 576px) {
   .right-side {
-    margin-left: 100px;
+    margin-left: 120px;
   }
 }
 .programacion {
@@ -1570,7 +1570,7 @@ button:disabled {
   display: flex;
   justify-content: center;
 }
-.sidebar .sidebar-footer .logout-btn {
+.sidebar .sidebar-footer .logout-button-sb {
   background: #FFFFFF;
   color: #000000;
   border: none;
@@ -1580,11 +1580,11 @@ button:disabled {
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }
-.sidebar .sidebar-footer .logout-btn:hover {
+.sidebar .sidebar-footer .logout-button-sb:hover {
   background: #3a5d91;
   transform: translateY(-2px);
 }
-.sidebar .sidebar-footer .logout-btn:active {
+.sidebar .sidebar-footer .logout-button-sb:active {
   transform: translateY(0);
 }
 
@@ -1600,7 +1600,7 @@ button:disabled {
     font-size: 0.85rem;
     padding: 0.7rem 0.9rem;
   }
-  .sidebar .logout-btn {
+  .sidebar .sidebar-footer .logout-button-sb {
     font-size: 0.85rem;
     padding: 0.5rem 1rem;
   }
@@ -1614,7 +1614,7 @@ button:disabled {
     font-size: 0.8rem;
     padding: 0.65rem 0.85rem;
   }
-  .sidebar .logout-btn {
+  .sidebar .sidebar-footer .logout-button-sb {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
@@ -1643,7 +1643,7 @@ button:disabled {
 }
 @media (max-width: 576px) {
   .sidebar {
-    width: 100px;
+    width: 120px;
     padding: 2rem 0.25rem;
   }
   .sidebar .sidebarLogo {
@@ -1655,8 +1655,12 @@ button:disabled {
     margin: 1.8rem 0 1.8rem;
   }
   .sidebar ul li {
+    font-size: 0.65rem;
+    padding: 0.25rem;
+  }
+  .sidebar .sidebar-footer .logout-button-sb {
     font-size: 0.7rem;
-    padding: 0.4rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 .topbar {
