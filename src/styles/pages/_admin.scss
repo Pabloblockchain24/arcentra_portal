@@ -1,12 +1,18 @@
 .admin-dashboard {
     display: flex;
     flex-direction: row;
+        height: 100vh;
+    overflow: hidden;
 }
 
 .right-side {
     width: 100%;
-    max-height: 100vh;
+    height: 100vh;
+        max-height: 100vh;
+
     margin-left: 240px;
+        overflow-y: auto;
+    overflow-x: hidden;
 
 }
 
